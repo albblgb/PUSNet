@@ -5,7 +5,7 @@ Code for "Purified and Unified Steganographic Network"
 - Python 3.8.13, PyTorch = 1.11.0
 - Run the following commands in your terminal:
 
-  `conda env create  -f env.yml`
+  `conda env create -f env.yml`
 
   `conda activate pyt_env`
 
@@ -36,7 +36,7 @@ Code for "Purified and Unified Steganographic Network"
 - Here, we provide [trained models](https://drive.google.com/drive/folders/1lM9ED7uzWYeznXSWKg4mgf7Xc7wjjm8Q?usp=sharing).
 
 ## Dataset
-- We train PUSNet on the [DIV2K](https://opendatalab.com/DIV2K) training dataset, and test it on three [testing datasets](https://drive.google.com/file/d/1NYVWZXe0AjxdI5vuI2gF6_2hwoS1c4y7/view?usp=sharing), including the DIV2K test dataset, 1000 images randomly selected from the ImageNet test dataset
+- We train the PUSNet on the [DIV2K](https://opendatalab.com/DIV2K) training dataset, and test it on three [testing datasets](https://drive.google.com/file/d/1NYVWZXe0AjxdI5vuI2gF6_2hwoS1c4y7/view?usp=sharing), including the DIV2K test dataset, 1000 images randomly selected from the ImageNet test dataset
  
 ## Others
 - The `batch_size` in `config.py` should be at least `2*number of gpus` and it should be divisible by number of gpus.
