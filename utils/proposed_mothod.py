@@ -139,50 +139,50 @@ def remove_adapter_for_receiver(model, model_seed):
             idx_m += 1
 
 
-#####################################################################
-#                         batch normalization                       #
-#####################################################################
+# #####################################################################
+# #                         batch normalization                       #
+# #####################################################################
 
-def save_bn(model):
-    r_ms = []; r_vs = []
-    for m in model.modules():
-        if isinstance(m, nn.BatchNorm2d):
-            r_ms.append(m.running_mean.clone())
-            r_vs.append(m.running_var.clone())
-    return r_ms, r_vs
-
-
-def restore_bn(model, r_ms, r_vs):
-    idx = 0
-    for m in model.modules():
-        if isinstance(m, nn.BatchNorm2d):
-            m.running_mean = r_ms[idx]
-            m.running_var = r_vs[idx]
-            idx += 1
+# def save_bn(model):
+#     r_ms = []; r_vs = []
+#     for m in model.modules():
+#         if isinstance(m, nn.BatchNorm2d):
+#             r_ms.append(m.running_mean.clone())
+#             r_vs.append(m.running_var.clone())
+#     return r_ms, r_vs
 
 
-def record_bn_into_json(b_rm, b_rv, file_path):
+# def restore_bn(model, r_ms, r_vs):
+#     idx = 0
+#     for m in model.modules():
+#         if isinstance(m, nn.BatchNorm2d):
+#             m.running_mean = r_ms[idx]
+#             m.running_var = r_vs[idx]
+#             idx += 1
 
-    for idx in range(len(b_rm)):
-        b_rm[idx] = b_rm[idx].tolist()
-        b_rv[idx] = b_rv[idx].tolist()
 
-    fs_se = {"b_rm_se": b_rm, "b_rv_se": b_rv}
-    jsonString = json.dumps(fs_se)
-    jsonFile = open(file_path, "w")
-    jsonFile.write(jsonString)
-    jsonFile.close()
+# def record_bn_into_json(b_rm, b_rv, file_path):
+
+#     for idx in range(len(b_rm)):
+#         b_rm[idx] = b_rm[idx].tolist()
+#         b_rv[idx] = b_rv[idx].tolist()
+
+#     fs_se = {"b_rm_se": b_rm, "b_rv_se": b_rv}
+#     jsonString = json.dumps(fs_se)
+#     jsonFile = open(file_path, "w")
+#     jsonFile.write(jsonString)
+#     jsonFile.close()
  
 
-def load_bn_from_json(file_path, device): 
-    fileObject = open(file_path, "r")
-    jsonContent = fileObject.read()
-    fs_se = json.loads(jsonContent)
-    b_rm_se = fs_se['b_rm_se']; b_rv_se = fs_se['b_rv_se']
+# def load_bn_from_json(file_path, device): 
+#     fileObject = open(file_path, "r")
+#     jsonContent = fileObject.read()
+#     fs_se = json.loads(jsonContent)
+#     b_rm_se = fs_se['b_rm_se']; b_rv_se = fs_se['b_rv_se']
 
-    for idx in range(len(b_rm_se)):
-        b_rm_se[idx] = torch.from_numpy(np.array(b_rm_se[idx])).float().to(device)
-        b_rv_se[idx] = torch.from_numpy(np.array(b_rv_se[idx])).float().to(device)
+#     for idx in range(len(b_rm_se)):
+#         b_rm_se[idx] = torch.from_numpy(np.array(b_rm_se[idx])).float().to(device)
+#         b_rv_se[idx] = torch.from_numpy(np.array(b_rv_se[idx])).float().to(device)
     
-    return b_rm_se, b_rv_se
+#     return b_rm_se, b_rv_se
 
