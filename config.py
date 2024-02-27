@@ -14,9 +14,9 @@ resize_size_test = 512  # size for testing
 train_data_dir = ''
 test_data_dir = ''
 # Saving checkpoints
-test_freq = 2
-save_freq = 2
-save_start_epoch = 1
+test_freq = 50
+save_freq = 50
+save_start_epoch = 1000
 model_save_dir = 'model_zoo'
 # pusnet
 pusnet_device_ids = '0, 1, 2, 3'
