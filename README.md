@@ -1,5 +1,5 @@
 # Pusnet
-Code for "Purified and Unified Steganographic Network"
+This repo is the official code forr "Purified and Unified Steganographic Network"
     
 ## Dependencies and Installation
 - Python 3.8.13, PyTorch = 1.11.0
