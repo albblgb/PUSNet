@@ -43,3 +43,16 @@ This repo is the official code for
  
 ## Others
 - The `batch_size` in `config.py` should be at least `2*number of gpus` and it should be divisible by number of gpus.
+
+
+## Citation
+If you find our paper or code useful for your research, please cite:
+```
+@inproceedings{li2024purified,
+  title={Purified and Unified Steganographic Network},
+  author={Li, Guobiao and Li, Sheng and Luo, Zicong and Qian, Zhenxing and Zhang, Xinpeng},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={27569--27578},
+  year={2024}
+}
+```
