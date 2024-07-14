@@ -2,7 +2,7 @@
 
 This repo is the official code for
 
-* [**Purified and Unified Steganographic Network**](https://arxiv.org/abs/2402.17210)
+* [**Purified and Unified Steganographic Network**]([https://arxiv.org/abs/2402.17210](https://openaccess.thecvf.com/content/CVPR2024/html/Li_Purified_and_Unified_Steganographic_Network_CVPR_2024_paper.html))
     
 ## Dependencies and Installation
 - Python 3.8.13, PyTorch = 1.11.0
